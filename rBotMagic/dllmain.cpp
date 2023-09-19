@@ -47,39 +47,7 @@ int WINAPI custom_connect(SOCKET s,const struct sockaddr *name, int namelen);
 HANDLE hPIPE;
 HANDLE NamedPipe;
 
-char* TextToHex( char* text) 
-{ 
-    if (!text) return 0; 
 
-    int len = strlen(text); 
-	char asd[6] = "asd";
-
-
-    char *buffer = new char[2*len]+1; 
-    if (!buffer) return 0; 
-	
-    for (int i=0; i<len; i++) 
-        sprintf( buffer+2*i, "%x", (unsigned int) text[i]); 
-
-    return buffer; 
-} 
-char* getText(char* text, DWORD length)
-{
-    if (!text) return 0;
-
-    int len = strlen(text);
-
-
-	char * str;
-	string str2 = text;
-	string str3;
-	str3 = str2.substr(0,length);
-	str = new char[str3.length()+1];
-	strcpy(str,str3.c_str());
-	int test = str3.length();
-
-    return str; 
-} 
 void WriteLog(char FAR* buf, int len) 
 {
 	BOOL bWrite = false;
